@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter_posts/pages/AppBarr.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:flutter_posts/domain/post.dart';
@@ -54,6 +55,12 @@ class _PostPageState extends State<PostPage> {
     return Column(
       children: [
         Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("bg/index.png"),
+                fit: BoxFit.cover,
+              )
+          ),
           padding: EdgeInsets.all(10),
           child: Table(
             children: [
@@ -80,9 +87,12 @@ class _PostPageState extends State<PostPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: BaseAppBar(
         title: Text("widget.title"+post!.title.toString()),
+        appBar: AppBar(),
+        widgets: <Widget>[Icon(Icons.more_vert)],
       ),
+
       body: getBody(),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_posts/pages/AppBarr.dart';
 import 'package:flutter_posts/pages/add_post.dart';
 import 'package:flutter_posts/pages/desserts.dart';
 import 'package:flutter_posts/pages/entrees.dart';
@@ -20,23 +21,25 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+
+
       //home: HomePage(title: 'Posts'),
 
       onGenerateRoute: (settings){
         if(settings.name == '/'){
-          return MaterialPageRoute(builder: (contect) => HomePage(title: 'Posts'));
+          return MaterialPageRoute(builder: (contect) => HomePage(title: 'Accueil'));
         }
         if(settings.name == '/post'){
           return MaterialPageRoute(builder: (contect) => AddPostPage());
         }
         if(settings.name == '/entrees'){
-          return MaterialPageRoute(builder: (contect) => HomePage(title: "entrees"));
+          return MaterialPageRoute(builder: (contect) => HomePage(title: "Liste des entrées"));
         }
         if(settings.name == '/repas'){
-          return MaterialPageRoute(builder: (contect) => HomePage(title: "repas"));
+          return MaterialPageRoute(builder: (contect) => HomePage(title: "Liste des repas"));
         }
         if(settings.name == '/desserts'){
-          return MaterialPageRoute(builder: (contect) => HomePage(title: "desserts"));
+          return MaterialPageRoute(builder: (contect) => HomePage(title: "Liste des desserts"));
         }
         if(settings.name == '/recettes'){
           return MaterialPageRoute(builder: (contect) => RecettesPage());

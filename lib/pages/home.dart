@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+
 import 'package:flutter_posts/domain/post.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
@@ -41,6 +42,7 @@ class _HomePageState extends State<HomePage> {
   Widget getBody() {
     if (this.posts.length == 0) {
       return Center(
+
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -48,15 +50,26 @@ class _HomePageState extends State<HomePage> {
             ],
           ));
     }
-    return ListView.separated(
-      padding: EdgeInsets.all(10),
-      itemCount: this.posts.length,
-      itemBuilder: (context, index) {
-        var post = this.posts[index];
-        return TextButton(onPressed: ()=>Navigator.pushNamed(context, '/posts/${post.id}'), child: Text(post.title));
-      },
-      separatorBuilder: (context, index)=> Divider(),
+    return Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("bg/index.png"),
+              fit: BoxFit.cover,
+            )
+        ),
+      child:
+        ListView.separated(
+
+          padding: EdgeInsets.all(10),
+          itemCount: this.posts.length,
+          itemBuilder: (context, index) {
+            var post = this.posts[index];
+            return TextButton(onPressed: ()=>Navigator.pushNamed(context, '/posts/${post.id}'), child: Text(post.title,));
+          },
+          separatorBuilder: (context, index)=> Divider(),
+        )
     );
+
   }
 
   FutureOr onBack(dynamic value){
@@ -65,13 +78,17 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
+
       body: getBody(),
+
       appBar: BaseAppBar(
-        title: Text('title'),
+        title: Text(widget.title),
         appBar: AppBar(),
         widgets: <Widget>[Icon(Icons.more_vert)],
       ),
+
       floatingActionButton: FloatingActionButton(
         onPressed: ()=>Navigator.pushNamed(context, '/post'),
         tooltip: 'Add Post',

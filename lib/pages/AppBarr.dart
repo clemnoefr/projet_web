@@ -6,6 +6,7 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
   final AppBar appBar;
   final List<Widget> widgets;
 
+
   /// you can add more fields that meet your needs
 
   const BaseAppBar({Key? key, required this.title, required this.appBar, required this.widgets})
@@ -15,6 +16,10 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: title,
+      //backgroundColor: Colors.green,
+      elevation: 0.0,
+      backgroundColor: Color(0xFF07a82e).withOpacity(0.5),
+
       actions: [
         Container(
           margin: EdgeInsets.only(right: 50.0),
