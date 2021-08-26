@@ -55,6 +55,7 @@ class _HomePageState extends State<HomePage> {
             image: DecorationImage(
               image: AssetImage("bg/index.png"),
               fit: BoxFit.cover,
+              colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.2), BlendMode.dstATop),
             )
         ),
       child:
@@ -64,7 +65,7 @@ class _HomePageState extends State<HomePage> {
           itemCount: this.posts.length,
           itemBuilder: (context, index) {
             var post = this.posts[index];
-            return TextButton(onPressed: ()=>Navigator.pushNamed(context, '/posts/${post.id}'), child: Text(post.title,));
+            return TextButton(onPressed: ()=>Navigator.pushNamed(context, '/posts/${post.id}'), child: Text(post.title,style: TextStyle(color: Colors.lightBlue),));
           },
           separatorBuilder: (context, index)=> Divider(),
         )

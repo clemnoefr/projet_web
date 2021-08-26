@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 import 'package:flutter_posts/pages/AppBarr.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
@@ -52,13 +53,15 @@ class _PostPageState extends State<PostPage> {
         ],
       ));
     }
-    return Column(
-      children: [
+    return Center(
+      child:
         Container(
+          height: double.infinity,
           decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("bg/index.png"),
                 fit: BoxFit.cover,
+                colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.2), BlendMode.dstATop),
               )
           ),
           padding: EdgeInsets.all(10),
@@ -75,12 +78,16 @@ class _PostPageState extends State<PostPage> {
               TableRow(children: [
                 TableCell(child: Text("Body :")),
                 TableCell(child: Text(post!.body.toString())),
+              ]),
+              TableRow(children: [
+                TableCell(child: Text("Image :")),
+                TableCell(child: Image.network("https://www.google.com/search?q=image&client=firefox-b-d&sxsrf=ALeKk03LXI6oMAKKFwo9fFkHabYysNlM5A:1625053462065")),
               ])
             ],
           ),
         ),
-        Image.network("https://www.google.com/search?q=image&client=firefox-b-d&sxsrf=ALeKk03LXI6oMAKKFwo9fFkHabYysNlM5A:1625053462065&tbm=isch&source=iu&ictx=1&fir=2DNOEjVi-CBaYM%252CH501o2XBa9olJM%252C_&vet=1&usg=AI4_-kS4W_wFONv4Y4HZrkSfv4U96IO2QQ&sa=X&ved=2ahUKEwiPkePyo7_xAhVKzRoKHTjAAY0Q9QF6BAgQEAE#imgrc=2DNOEjVi-CBaYM")
-      ],
+
+
     );
   }
 
