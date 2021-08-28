@@ -12,6 +12,7 @@ class HomePage extends StatefulWidget {
 
   final String title;
 
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -19,6 +20,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   List<Post> posts = <Post>[];
+
 
   @override
   void initState() {
@@ -51,6 +53,8 @@ class _HomePageState extends State<HomePage> {
           ));
     }
     return Container(
+        height: double.infinity,
+        width: double.infinity,
         decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage("bg/index.png"),
@@ -59,15 +63,21 @@ class _HomePageState extends State<HomePage> {
             )
         ),
       child:
-        ListView.separated(
+        Column(
+          children: [
+            Padding(
+                padding: EdgeInsets.fromLTRB(0, 150, 0, 0),
+                child: Text("Bienvenue sur le site Recette Gourmande", style: TextStyle(fontSize: 22),),
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(50, 150, 50, 0),
+              child: Text("Vous trouverez ici toutes sortes de recettes allant des entrées aux dessert en passant par vos plats principaux",  style: TextStyle(fontSize: 22)),
+            ),
 
-          padding: EdgeInsets.all(10),
-          itemCount: this.posts.length,
-          itemBuilder: (context, index) {
-            var post = this.posts[index];
-            return TextButton(onPressed: ()=>Navigator.pushNamed(context, '/posts/${post.id}'), child: Text(post.title,style: TextStyle(color: Colors.lightBlue),));
-          },
-          separatorBuilder: (context, index)=> Divider(),
+
+
+          ],
+
         )
     );
 

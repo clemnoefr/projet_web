@@ -27,22 +27,19 @@ class MyApp extends StatelessWidget {
 
       onGenerateRoute: (settings){
         if(settings.name == '/'){
-          return MaterialPageRoute(builder: (contect) => HomePage(title: 'Accueil'));
+          return MaterialPageRoute(builder: (context) => HomePage(title: 'Accueil'));
         }
         if(settings.name == '/post'){
-          return MaterialPageRoute(builder: (contect) => AddPostPage());
+          return MaterialPageRoute(builder: (context) => AddPostPage());
         }
         if(settings.name == '/entrees'){
-          return MaterialPageRoute(builder: (contect) => HomePage(title: "Liste des entrées"));
+          return MaterialPageRoute(builder: (context) => RepasPage(title: "Liste des entrées", etat: "entree"));
         }
         if(settings.name == '/repas'){
-          return MaterialPageRoute(builder: (contect) => HomePage(title: "Liste des repas"));
+          return MaterialPageRoute(builder: (context) => RepasPage(title: "Liste des repas", etat: "repas"));
         }
         if(settings.name == '/desserts'){
-          return MaterialPageRoute(builder: (contect) => HomePage(title: "Liste des desserts"));
-        }
-        if(settings.name == '/recettes'){
-          return MaterialPageRoute(builder: (contect) => RecettesPage());
+          return MaterialPageRoute(builder: (context) => RepasPage(title: "Liste des desserts", etat:"dessert"));
         }
         var uri=Uri.parse(settings.name ?? '');
         if(uri.pathSegments.length == 2 && uri.pathSegments.first == 'posts'){
