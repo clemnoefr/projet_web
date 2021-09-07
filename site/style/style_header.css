@@ -1,0 +1,83 @@
+html{
+	height: 100%;
+}
+body{
+	font-family: 'Alice', serif;
+	min-height: 100%;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+.navbar{
+ /* Couleur de fond de la barre de navigation */
+ background-color: #07a82e;
+ border-color: #07a82e;
+ text-decoration: none;
+}
+/* Couleur des titres affichés dans la barre */
+.navbar .navbar-brand{
+	color: white;
+
+	/*gros titre*/
+	/*margin-right: 100px;*/
+	margin-right: 50px;
+	font-size: 35px;/*30px;*/
+}
+.navbar .navbar-brand:hover{
+	color: white;
+}
+/* menu déroulant */
+.navbar .navbar-nav  li a {
+    color: #FFFFFF;
+    font-size: 25px;/*20px;*/
+}
+.dropdown-menu{
+	background-color: #07a82e;
+	border-color: #07a82e;
+	/*opacity: 80%;*/
+}
+/*titre*/
+.nav-item{
+	/*margin-right: 180px;*/
+	margin-right: 85px;
+
+	/*font-size: 20px;*/
+}
+/*Icon burger*/
+.navbar .navbar-toggler {
+	border-color: #07a82e;
+	color: #07a82e;
+}
+.navbar .navbar-toggler:hover,
+.navbar .navbar-toggler:focus {
+	background-color: #07a82e; 
+	color: #07a82e;
+}
+.navbar .navbar-toggler .navbar-toggler-icon {
+	background-color: #07a82e; 
+	color: #07a82e;
+}
+.dropdown-item:hover{
+	background-color: black;
+	opacity: 0.5;
+}
+/*icon menu*/
+button i{
+	color: white;
+	font-size: 45px;
+}
+@media all and (max-width: 1024px){
+	.dropdown-toggle::after{
+		content: none;
+	}
+	.dropdown-menu{
+		opacity: 60%;
+	}
+	.dropdown-item:hover{
+		background-color: black;
+		opacity: 1;
+	}
+	.bi-list::before {
+    	content: "\f479";
+	}
+}

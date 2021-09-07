@@ -1,0 +1,65 @@
+form{
+	border: 3px solid #bfc9ca;
+	border-width: 0 3px 3px 3px;
+	margin-top: 140px;
+}
+#border{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+}
+span{
+	background-color: #07a82e;
+	position: absolute;
+	width: 50%;
+	height: 8%;
+	margin-top: -60px;
+	margin-left: ;
+	opacity: 50%;
+}
+span h1{
+	margin-top: -4px;
+	font-size: 50px;
+	text-align: center;
+	color: white;
+}
+div#nom_prenom{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+div.nom{
+	width: 100%;
+}
+div.prenom{
+	width: 100%;
+}
+div#mdp{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}	
+div.mdp{
+	width: 100%;
+}
+div.mdp_confirm{
+	width: 100%;
+}
+button{
+	margin-top: 30px;
+}
+@media all and (max-width: 1024px){
+
+	button{
+		margin-top: 10px;
+	}
+	#border{
+	width: 80%;
+	}
+	span{
+	margin-top: -58px;
+	width: 80%;
+	}
+	
+}	

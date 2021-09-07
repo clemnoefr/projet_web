@@ -1,0 +1,63 @@
+nav.navbar{
+	z-index: 1;
+}
+h1{
+	font-size: 50px;
+	color: #3d3c3c;
+	text-align: center;
+	margin-bottom: 55px; 
+}
+table{
+	color: #3d3c3c;
+}
+th{
+	text-align: center;
+	font-size: 25px;
+}
+td{
+	vertical-align: middle;
+	text-align: center; 
+	font-size: 20px;
+}
+div.table-responsive-sm{
+	/*padding-right: 150px;
+	padding-left: 150px;*/
+	/*width: 80%;*/
+	display: block;
+	margin: auto;
+}
+a{
+	text-decoration: none;
+}
+a span{
+	position: absolute;
+	margin-top: -20px;
+	margin-left: -55px;
+	color: white;
+	background-color: #07a82e;
+	padding-right: 5px;
+	padding-left: 5px;
+	font-size: 15px;
+	border-radius: 10px;
+	transform: scale(0) rotate(-12deg);
+}
+a:hover span, a:focus span{
+	transform: scale(1) rotate(0);
+}
+div#retour{
+	position: absolute;
+	top: 90px;
+	left: 30px;
+}
+div#retour a{
+	font-size: 20px;
+	color: #3d3c3c;
+	text-decoration: none;
+}
+div#retour a:hover{
+	color: #07a82e;
+	font-size: 25px;
+} 
+#footer{
+	position: relative;
+}

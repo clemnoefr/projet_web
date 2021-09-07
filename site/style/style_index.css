@@ -1,0 +1,55 @@
+body{
+	font-family: 'Alice', serif;
+}
+span img#logo{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 35%;
+	margin-top: 48px;
+}
+#conteneur{
+	display: flex;
+	justify-content: space-between;
+	/*font-size: 20px;*/
+	margin-left: 45px;/*30px;*/
+	margin-right: 45px;/*30px;*/
+	margin-top: -23%;
+	text-align: center;
+	color: #3d3c3c;
+}
+#conteneur p, h1{
+	margin-bottom: 25px;/*25px*/
+}
+#conteneur h1{
+	font-size: 55px;/*45px;*/
+}
+#conteneur p{
+	font-size: 22px;
+}
+@media all and (max-width: 1024px){
+	/*.navbar .navbar-brand{
+		margin-right: 0px;
+		font-size: none;
+	}
+	.nav-item{
+		margin-right: 0px;
+		font-size:;
+	}*/
+	span img{
+		margin-top: 15px;
+		width: 50%;
+	}
+	#conteneur{
+		display: block;
+		margin-top: 23px;
+		font-size: 20px;
+	}
+	#conteneur p, h1{
+	margin-bottom: 20px;
+}
+	#conteneur1{
+		margin-bottom: 35px;
+	}
+	
+}

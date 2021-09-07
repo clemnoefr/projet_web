@@ -1,0 +1,63 @@
+.navbar-light .navbar-brand {
+	color: white;
+}
+.navbar-light .navbar-brand:hover {
+	color: white;
+}
+h1{
+	font-size: 46px;
+	text-align: center;
+	color: #3d3c3c;
+	margin-bottom: 50px;
+}
+div#bloc{
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	width: 25%;
+	margin: auto;
+	color: #3d3c3c;
+}
+div#bloc img{
+	display: inline-block;
+	margin: auto;
+	width: 50%;
+}
+div#bloc label{
+	font-size: 20px;
+}
+div#bloc input{
+	width: 100%;
+}
+div#bloc textarea#recette_texte{
+
+}
+div#bloc select{
+	width: 100%;
+}
+/*div#bloc button.btn a{
+	text-decoration: none;
+	color: white;
+}*/
+div#bloc button.btn{
+	background-color: #07a82e;
+	font-size: 20px;
+	margin-top: 30px;
+	color: white;
+}
+div#bloc button{
+	margin-bottom: 20px;
+}
+#footer{
+	position: relative;
+	padding-top: 30px;
+}
+@media all and (max-width: 1024px){
+	
+	div#bloc{
+		width: 50%;
+	}
+	.dropdown-toggle::after{
+		content: none;
+	}
+}
