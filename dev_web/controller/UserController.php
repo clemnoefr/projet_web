@@ -11,9 +11,14 @@ class UserController{
         $user->createUser($data);
     }
 
-    public function insert($data){
+    public function getUser($data){
         
         $user = new User();
-        $user->createUser($data);
+       return $user->getUser($data);
+    }
+    public function GetAllUsers(){
+         
+        $user = new User();
+        return $user->GetAllUsers();
     }
 }

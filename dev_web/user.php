@@ -14,4 +14,14 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $response=json_encode("toto");
     echo $response;
 
+}elseif($_SERVER['REQUEST_METHOD']=='GET' && isset($_GET["ID_user"])){
+
+    $response=json_encode($user->getUser($_GET["ID_user"]));
+    echo $response;
+
+}elseif($_SERVER['REQUEST_METHOD']=='GET' && empty($_GET["ID_user"])){
+
+    $response=json_encode($user->GetAllUsers());
+    echo $response;
+
 }else{echo"TG";}
