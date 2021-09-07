@@ -1,0 +1,28 @@
+h1{
+	text-align: center;
+	font-size: 50px;
+	color: #3d3c3c;
+	margin-bottom: 70px;
+}
+ul{
+	color: #3d3c3c;
+	font-size: 25px;
+	text-align: center;
+}
+li{
+	list-style-type: none;
+}
+div#retour{
+	position: absolute;
+	top: 90px;
+	left: 30px;
+}
+div#retour a{
+	font-size: 20px;
+	color: #3d3c3c;
+	text-decoration: none;
+}
+div#retour a:hover{
+	color: #07a82e;
+	font-size: 25px;
+}

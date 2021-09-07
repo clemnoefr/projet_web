@@ -1,0 +1,70 @@
+h1{
+	font-size: 46px;
+	text-align: center;
+	color: #3d3c3c;
+	margin-bottom: 30px;/*50*/
+}
+div#bloc{
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	width: 25%;
+	margin: auto;
+	color: #3d3c3c;
+}
+div#bloc div#ingredient{
+	display: flex;
+	flex-direction: row;
+	margin: auto;
+}
+div#bloc input{
+	width: 100%;
+}
+div#bloc div#ingredient input.nombre{
+	width: 70px;
+	margin-right: 5px;
+}
+div#bloc div#ingredient select.mesure{
+	width: 70px;
+}
+div#button{
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+}
+div#button button.btn a{
+	text-decoration: none;
+	color: white;
+	font-size: 20px;
+}
+div#button button.btn{
+	display: block;
+	margin: auto;
+	background-color: #07a82e;
+	margin-top: 35px;
+}
+div#button button{
+	margin-bottom: 20px;
+}
+div#button button.retour{
+	margin-right: 25px;
+}
+div#button button.suivant{
+	margin-left: 25px;
+}
+/*#footer{
+	position: relative;
+	padding-top: 30px;
+}*/
+@media all and (max-width: 1024px){
+	
+	div#bloc{
+		width: 50%;
+	}
+	div#button button.retour{
+		margin-right: 10px;
+	}
+	div#button button.suivant{
+		margin-left: 10px;
+	}
+}
