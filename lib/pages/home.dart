@@ -26,32 +26,13 @@ class _HomePageState extends State<HomePage> {
   void initState() {
 
     super.initState();
-    this.loadData();
+
   }
 // contact avec l'API
- void loadData() async {
-    var uri = Uri.parse('https://jsonplaceholder.typicode.com/posts');
-    //var uri = Uri.parse('http://localhost/api/');
-    // var uri = Uri.parse('https://jsonplaceholder.typicode.com/posts', body:{'name': 'doodle);
-    var resp = await http.get(uri);
-    print(resp);
-    Iterable list = jsonDecode(resp.body);
-    setState(() {
-      this.posts = Post.fromList(list);
-    });
-  }
+
 
   Widget getBody() {
-    if (this.posts.length == 0) {
-      return Center(
 
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text("Loading"),
-            ],
-          ));
-    }
     return Container(
         height: double.infinity,
         width: double.infinity,
@@ -83,9 +64,7 @@ class _HomePageState extends State<HomePage> {
 
   }
 
-  FutureOr onBack(dynamic value){
-    this.loadData();
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -100,11 +79,7 @@ class _HomePageState extends State<HomePage> {
         widgets: <Widget>[Icon(Icons.more_vert)],
       ),
 
-      floatingActionButton: FloatingActionButton(
-        onPressed: ()=>Navigator.pushNamed(context, '/post'),
-        tooltip: 'Add Post',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

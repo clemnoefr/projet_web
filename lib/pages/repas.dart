@@ -34,31 +34,23 @@ class _RepasPageState extends State<RepasPage> {
   }
 // contact avec l'API
   void loadData() async {
-    if(etat=="entree"){
+    // lien vers API
+    var uri=Uri.parse('http://10.0.2.2/dev_web/api/recettes.php?categorie=pla');
 
-    }
-    if(etat=="repas"){
-
-    }
-    if(etat=="dessert"){
-
-    }
-    var uri = Uri.parse('https://jsonplaceholder.typicode.com/posts');
-    //var uri = Uri.parse('http://localhost/api/');
-    // var uri = Uri.parse('https://jsonplaceholder.typicode.com/posts', body:{'name': 'doodle');
+  // requête
     var resp = await http.get(uri);
-    print(resp);
-    Iterable list = jsonDecode(resp.body);
+
+    final result=jsonDecode(resp.body.toString());
+
+    Iterable list = result;
+
     setState(() {
       this.posts = Post.fromList(list);
     });
+
   }
 
-  Widget getURL(){
 
-    print(etat);
-    return Text("toto");
-  }
   Widget getBody() {
     if (this.posts.length == 0) {
       return Center(
@@ -85,7 +77,7 @@ class _RepasPageState extends State<RepasPage> {
           itemCount: this.posts.length,
           itemBuilder: (context, index) {
             var post = this.posts[index];
-            return TextButton(onPressed: ()=>Navigator.pushNamed(context, '/posts/${post.id}'), child: Text(post.title,style: TextStyle(color: Colors.lightBlue),));
+            return TextButton(onPressed: ()=>Navigator.pushNamed(context, '/posts/${post.ID_recette}'), child: Text(post.nom_recette,style: TextStyle(color: Colors.lightBlue),));
           },
           separatorBuilder: (context, index)=> Divider(),
         )
@@ -110,11 +102,7 @@ class _RepasPageState extends State<RepasPage> {
         widgets: <Widget>[Icon(Icons.more_vert)],
       ),
 
-      floatingActionButton: FloatingActionButton(
-        onPressed: ()=>Navigator.pushNamed(context, '/post'),
-        tooltip: 'Add Post',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+     // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

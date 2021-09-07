@@ -1,22 +1,30 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'dart:typed_data';
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_posts/domain/post.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter/material.dart';
 
 import 'AppBarr.dart';
 
 class EntreesPage extends StatefulWidget {
+  EntreesPage({Key? key, required this.title, required this.etat}) : super(key: key);
+
+  final String title;
+  final String etat;
+
   @override
-  State<StatefulWidget> createState() => _EntreesPageState();
+  _RepasPageState createState() => _RepasPageState(etat: this.etat);
 }
-// page avec formulaire pour ajouter un post
-class _EntreesPageState extends State<EntreesPage> {
+
+class _RepasPageState extends State<EntreesPage> {
 
   List<Post> posts = <Post>[];
+  final String etat;
+
+  _RepasPageState({required this.etat});
 
   @override
   void initState() {
@@ -26,18 +34,24 @@ class _EntreesPageState extends State<EntreesPage> {
   }
 // contact avec l'API
   void loadData() async {
-    var uri = Uri.parse('https://jsonplaceholder.typicode.com/posts');
+    var uri=Uri.parse('http://10.0.2.2/dev_web/api/recettes.php?categorie=ent');
+
+
     var resp = await http.get(uri);
 
-    Iterable list = jsonDecode(resp.body);
+    final result=jsonDecode(resp.body.toString());
+
+    Iterable list = result;
     setState(() {
       this.posts = Post.fromList(list);
     });
   }
 
+
   Widget getBody() {
     if (this.posts.length == 0) {
       return Center(
+
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -45,15 +59,27 @@ class _EntreesPageState extends State<EntreesPage> {
             ],
           ));
     }
-    return ListView.separated(
-      padding: EdgeInsets.all(10),
-      itemCount: this.posts.length,
-      itemBuilder: (context, index) {
-        var post = this.posts[index];
-        return TextButton(onPressed: ()=>Navigator.pushNamed(context, '/posts/${post.id}'), child: Text(post.title));
-      },
-      separatorBuilder: (context, index)=> Divider(),
+    return Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("bg/index.png"),
+              fit: BoxFit.cover,
+              colorFilter: new ColorFilter.mode(Colors.black.withOpacity(0.2), BlendMode.dstATop),
+            )
+        ),
+        child:
+        ListView.separated(
+
+          padding: EdgeInsets.all(10),
+          itemCount: this.posts.length,
+          itemBuilder: (context, index) {
+            var post = this.posts[index];
+            return TextButton(onPressed: ()=>Navigator.pushNamed(context, '/posts/${post.ID_recette}'), child: Text(post.nom_recette,style: TextStyle(color: Colors.lightBlue),));
+          },
+          separatorBuilder: (context, index)=> Divider(),
+        )
     );
+
   }
 
   FutureOr onBack(dynamic value){
@@ -62,18 +88,18 @@ class _EntreesPageState extends State<EntreesPage> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
+
       body: getBody(),
+
       appBar: BaseAppBar(
-        title: Text('Liste de recettes pour les entrées'),
+        title: Text(widget.title),
         appBar: AppBar(),
         widgets: <Widget>[Icon(Icons.more_vert)],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: ()=>Navigator.pushNamed(context, '/post'),
-        tooltip: 'Add Post',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+
+      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

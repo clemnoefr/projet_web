@@ -27,7 +27,7 @@ class _PostPageState extends State<PostPage> {
   }
 
   void loadPost(int id) async {
-    var uri = Uri.parse('https://jsonplaceholder.typicode.com/posts/$id');
+    var uri = Uri.parse('http://10.0.2.2/dev_web/api/recettes.php?ID_recette=$id');
     var resp = await http.get(uri);
 
     var data = jsonDecode(resp.body);
@@ -40,7 +40,7 @@ class _PostPageState extends State<PostPage> {
     if (this.post == null) {
       return Text("Loading");
     }
-    return Text("Post #${this.post!.id}");
+    return Text("Post #${this.post!.ID_recette}");
   }
 
   Widget getBody() {
@@ -67,21 +67,26 @@ class _PostPageState extends State<PostPage> {
           padding: EdgeInsets.all(10),
           child: Table(
             children: [
-              TableRow(children: [
-                TableCell(child: Text("UserId :")),
-                TableCell(child: Text(post!.userId.toString())),
-              ]),
+
               TableRow(children: [
                 TableCell(child: Text("Titre de la recette :")),
-                TableCell(child: Text(post!.title.toString())),
+                TableCell(child: Text(post!.nom_recette.toString())),
               ]),
               TableRow(children: [
-                TableCell(child: Text("Body :")),
-                TableCell(child: Text(post!.body.toString())),
+                TableCell(child: Text("Liste ingredients :")),
+                TableCell(child: Text(post!.liste_ingredients.toString())),
+              ]),
+              TableRow(children: [
+                TableCell(child: Text("Liste ustensiles :")),
+                TableCell(child: Text(post!.liste_ustensiles.toString())),
+              ]),
+              TableRow(children: [
+                TableCell(child: Text("Recette :")),
+                TableCell(child: Text(post!.recette_texte.toString())),
               ]),
               TableRow(children: [
                 TableCell(child: Text("Image :")),
-                TableCell(child: Image.network("https://www.google.com/search?q=image&client=firefox-b-d&sxsrf=ALeKk03LXI6oMAKKFwo9fFkHabYysNlM5A:1625053462065")),
+                TableCell(child: Image.network("http://10.0.2.2/dev_web/site/images/"+post!.image.toString())),
               ])
             ],
           ),
@@ -95,7 +100,7 @@ class _PostPageState extends State<PostPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: BaseAppBar(
-        title: Text("widget.title"+post!.title.toString()),
+        title: Text("widget.title"+post!.nom_recette.toString()),
         appBar: AppBar(),
         widgets: <Widget>[Icon(Icons.more_vert)],
       ),
